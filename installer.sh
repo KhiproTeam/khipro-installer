@@ -57,11 +57,16 @@ sort_tags_by_version() {
     while IFS= read -r tag; do
         version=$(printf '%s\n' "$tag" | sed -nE 's/.*([0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?)(\+[0-9A-Za-z.-]+)?.*/\1/p')
         if [ -n "$version" ]; then
-            printf '0\t%s\t%s\n' "$version" "$tag"
+            version_core=${version%%-*}
+            stable_priority=1
+            if [[ "$version" == *-* ]]; then
+                stable_priority=0
+            fi
+            printf '0\t%s\t%d\t%s\t%s\n' "$version_core" "$stable_priority" "$version" "$tag"
         else
-            printf '1\t\t%s\n' "$tag"
+            printf '1\t\t\t\t%s\n' "$tag"
         fi
-    done | sort -t "$(printf '\t')" -k1,1n -k2,2Vr -k3,3 | cut -f3-
+    done | sort -t "$(printf '\t')" -k1,1n -k2,2Vr -k3,3nr -k4,4Vr -k5,5 | cut -f5-
 }
 
 check_package_debian() {
@@ -582,4 +587,3 @@ install_variant() {
 
 prompt_variant
 install_variant
-
