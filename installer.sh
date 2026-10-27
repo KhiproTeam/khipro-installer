@@ -79,8 +79,11 @@ check_package_arch() {
 prompt_variant() {
     echo "=========================================="
     echo "Choose your preferred Khipro variant:"
-    echo "1. Khipro Dark (arguably faster on PC, and certainly faster on touchscreen. Juktoborno forming is manual.)"
-    echo "2. Khipro Classic (Juktoborno forming is automatic.)"
+    echo "1. KHIPRO DARK"
+    echo "  (Arguably faster on PC, and certainly faster on touchscreen. 
+             Juktoborno forming is manual.)"
+    echo "2. KHIPRO CLASSIC"
+    echo "  (Juktoborno forming is automatic.)"
     echo "=========================================="
     echo ""
     read -p "Enter choice [1/2]: " variant_choice
