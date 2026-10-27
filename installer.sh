@@ -80,8 +80,8 @@ prompt_variant() {
     echo "=========================================="
     echo "Choose your preferred Khipro variant:"
     echo "1. KHIPRO DARK"
-    echo "  (Arguably faster on PC, and certainly faster on touchscreen. 
-             Juktoborno forming is manual.)"
+    echo "  (Arguably faster on PC, and certainly faster on touchscreen."
+    echo "   Juktoborno forming is manual.)"
     echo "2. KHIPRO CLASSIC"
     echo "  (Juktoborno forming is automatic.)"
     echo "=========================================="
